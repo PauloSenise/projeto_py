@@ -123,9 +123,12 @@ def listar_dados():
               """)   
         for i in range(len(culturas)):  # Agora percorre os elementos dentro da sublista
             cultura = culturas[i][0]  # Obtém cada elemento corretamente
-            area = f"{areas[i]:.2f} m²"  # Formata em número o valor da área ao exibir # Maneira correta 
+            area = f"{areas[i]} m²"  # Formata em número o valor da área ao exibir # Maneira correta 
             # area = areas[i][0]  # Obtém a área correspondente, ERRO: porém em formato de string que gerou problema na função atualizar_dados()
             print(f"{cultura} -> Área: {area}")
+            print('Insumos:',insumos) ####### somente para testar - deletar 
+            print('area:',areas)      ####### somente para testar - deletar
+            print('Cultura:',culturas) ####### somente para testar - deletar
 
 # Atualizar dados
 def atualizar_dados():
@@ -168,14 +171,13 @@ def salvar_dados_csv():
     df = pd.DataFrame({
         "Cultura": [c[0].replace("- Cultura: ", "") for c in culturas],  # Remove "- Cultura: " do nome
         "Área": areas,
-        "Insumo": [insumo[2] if i < len(insumos) else "Não informado" for i, insumo in enumerate(culturas)]
+        #"Insumo": [insumo[2] if i < len(insumos) else "Não informado" for i, insumo in enumerate(culturas)]
     })
 
     # Salvar no arquivo CSV
     df.to_csv("dados_fazenda.csv", index=False)  # index=False evita salvar índices desnecessários
     print("📁 Dados salvos em 'dados_fazenda.csv' com sucesso!")
-    print(areas)
-
+    
 # PROGRAMA PRINCIPAL
 # Função que exibe o menu de opções
 def menu():
