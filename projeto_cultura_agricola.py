@@ -1,3 +1,6 @@
+# Biblioteca pandas para criação do arquivo CSV
+import pandas as pd
+
 # Criação dos vetores para 2 culturas agrícolas 
 culturas = []
 areas = []
@@ -155,7 +158,23 @@ def deletar_dados():
             break
     else:
         print('\nDados não encontrado...!!!')
-        
+
+def salvar_dados_csv():
+    if not culturas:
+        print("Nenhuma cultura cadastrada para salvar.")
+        return
+
+    # Criar um DataFrame para armazenar os dados
+    df = pd.DataFrame({
+        "Cultura": [c[0].replace("- Cultura: ", "") for c in culturas],  # Remove "- Cultura: " do nome
+        "Área": areas,
+        "Insumo": [insumo[2] if i < len(insumos) else "Não informado" for i, insumo in enumerate(culturas)]
+    })
+
+    # Salvar no arquivo CSV
+    df.to_csv("dados_fazenda.csv", index=False)  # index=False evita salvar índices desnecessários
+    print("📁 Dados salvos em 'dados_fazenda.csv' com sucesso!")
+
 # PROGRAMA PRINCIPAL
 # Função que exibe o menu de opções
 def menu():
@@ -166,7 +185,8 @@ def menu():
 3 - Listar Dados
 4 - Atualizar Dados
 5 - Deletar Dados
-6 - Sair     
+6 - Salvar Dados para Análise em R          
+7 - Sair     
 """)
     return  validar('Escolha uma opção: ')
        
@@ -183,6 +203,8 @@ while True:
     if opcao == 5:
         deletar_dados()
     if opcao == 6:
+        salvar_dados_csv()
+    if opcao == 7:
         print('\nSaindo do programa...\n\n')
         break
     
