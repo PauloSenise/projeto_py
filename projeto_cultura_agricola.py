@@ -46,7 +46,7 @@ def adicionar_cultura():
        
     # Adiciona items aos vetores
     culturas.append([f'- Cultura: {cultura}'])
-    areas.append(area)
+    areas.append(round(area, 2))
 
     #areas.append([f'{area:.2f} m²']) # ERRO: Está Armazenando na Lista o Conteúdo em formato de String
     print("""
@@ -174,6 +174,7 @@ def salvar_dados_csv():
     # Salvar no arquivo CSV
     df.to_csv("dados_fazenda.csv", index=False)  # index=False evita salvar índices desnecessários
     print("📁 Dados salvos em 'dados_fazenda.csv' com sucesso!")
+    print(areas)
 
 # PROGRAMA PRINCIPAL
 # Função que exibe o menu de opções
