@@ -11,7 +11,7 @@ insumos = []
 # Função para validar a opção digitada
 def validar(entrada):
     valor = int(input(entrada))
-    if valor == 0 or valor >6:
+    if valor == 0 or valor >7:
         print("""
         ----------------------
           OPÇÃO IVÁLIDA...!!
@@ -20,7 +20,7 @@ def validar(entrada):
        Escolha uma Opção de 1 a 6
        --------------------------
               """)
-    if valor <=6:
+    if valor <=7:
         return(valor)
     if valor >=1:
         return(valor)
@@ -75,25 +75,44 @@ def adicionar_insumo():
         return  # Sai da função para evitar o erro
     # Insumos para o Café
     if nome_cultura == 'cafe':
-        print("""\nTIPOS DE ADUBO PARA O PLANTIO DO CAFÉ CONFORME O SOLO:
-1. Adubo Rico em Nitrogênio - Escolha: Torta de Mamona - 20 L/m
-2. Adubo com Matéria Orgânica e Potássio - Escolha Casca de Café - 2 L/m
-3. Adubo mais Equilibrado - Escolha Casca de Café - 10 L/m             
+        print("""\n
+              ---------------------------------------------------------------
+              CONFORME O SOLO ESCOLHA O TIPO DE ADUBO PARA O PLANTIO DO CAFÉ:
+              ---------------------------------------------------------------
+1. Adubo Rico em Nitrogênio - Escolha: Torta de Mamona - Dose máx: 100 g/m² ou Dose mín: 50 g/m²
+2. Adubo com Matéria Orgânica e Potássio - Escolha Casca de Café - Dose máx: 200 g/m² ou Dose mín: 100 g/m²
+3. Adubo mais Equilibrado - Escolha Casca de Café - Dose máx: 250 g/m² ou Dose mín: 150 g/m²            
         """)
         adubo = int(input('Digite a opção de adubo: '))
 
-        if adubo in [1, 2, 3]:  # Garante que a opção é válida
-            quantidade = float(input("Quantidade por metro quadrado: "))
-            total_insumo = quantidade * areas[index]  # Converte área para número
+        if adubo in [1]:  # Garante que a opção é válida
+           dose = int(input("Adubo: Torta de Mamona - Digite o Valor da Dose (Máx ou Mín): "))
+           area = float(input("Digite o valor da Área da Cultura: "))
+           total_insumo = dose * area
+           insumos.append((nome_cultura, adubo, total_insumo))
+           print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.2f} Kg de insumo do tipo Torta de Mamona.")
+        
+        elif adubo in [2]:
+            dose = int(input("Adubo: Casca de Café - Digite o Valor da Dose (Máx ou Mín): "))
+            area = float(input("Digite o valor da Área da Cultura: "))
+            total_insumo = dose * area
             insumos.append((nome_cultura, adubo, total_insumo))
-            print(f"Para o plantio do {nome_cultura}, será necessário {total_insumo:.2f} litros de insumo do tipo {adubo}.")
+            print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.2f} Kg de insumo do tipo Casca de Café.")
+        
+        elif adubo in [3]:
+            dose = int(input("Adubo: Casca de Café - Digite o Valor da Dose (Máx ou Mín): "))
+            area = float(input("Digite o valor da Área da Cultura: "))
+            total_insumo = dose * area
+            insumos.append((nome_cultura, adubo, total_insumo))
+            print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.2f} Kg de insumo do tipo Casca de Café.")
+            
         else:
             print("Opção de adubo inválida!")
 
     # Insumos para Laranja
     if nome_cultura == 'laranja':
-        print("""\nTIPOS DE ADUBO PARA O PLANTIO DO CAFÉ CONFORME O SOLO:
-1. Adubo Rico em Nitrogênio - Escolha: Torta de Mamona - 20 L/m
+        print("""\nCONFORME O SOLO ESCOLHA O TIPO DE ADUBO PARA O PLANTIO DO CAFÉ:
+1. Adubo Rico em Nitrogênio - Escolha: Torta de Mamona - 20 g/m
 2. Adubo com Matéria Orgânica e Potássio - Escolha Casca de Café - 2 L/m
 3. Adubo mais Equilibrado - Escolha Casca de Café - 10 L/m             
         """)
