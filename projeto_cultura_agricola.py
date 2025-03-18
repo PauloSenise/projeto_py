@@ -79,8 +79,8 @@ def adicionar_insumo():
               ---------------------------------------------------------------
               CONFORME O SOLO ESCOLHA O TIPO DE ADUBO PARA O PLANTIO DO CAFÉ:
               ---------------------------------------------------------------
-1. Adubo Rico em Nitrogênio - Escolha: Torta de Mamona - Dose máx: 100 g/m² ou Dose mín: 50 g/m²
-2. Adubo com Matéria Orgânica e Potássio - Escolha Casca de Café - Dose máx: 200 g/m² ou Dose mín: 100 g/m²
+1. Adubo Rico em Nitrogênio - Escolha: Torta de Mamona - Dose máx: 100 g/m² ou Dose mín: 50 g/m².\n
+2. Adubo com Matéria Orgânica e Potássio - Escolha Casca de Café - Dose máx: 200 g/m² ou Dose mín: 100 g/m².\n
 3. Adubo mais Equilibrado - Escolha Casca de Café - Dose máx: 250 g/m² ou Dose mín: 150 g/m²            
         """)
         adubo = int(input('Digite a opção de adubo: '))
@@ -89,40 +89,64 @@ def adicionar_insumo():
            dose = int(input("Adubo: Torta de Mamona - Digite o Valor da Dose (Máx ou Mín): "))
            area = float(input("Digite o valor da Área da Cultura: "))
            total_insumo = dose * area
+           convert_ton = total_insumo / 1000
            insumos.append((nome_cultura, adubo, total_insumo))
-           print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.2f} Kg de insumo do tipo Torta de Mamona.")
+           print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.1f} Kg ou {convert_ton} t de insumos do tipo Torta de Mamona.")
         
         elif adubo in [2]:
             dose = int(input("Adubo: Casca de Café - Digite o Valor da Dose (Máx ou Mín): "))
             area = float(input("Digite o valor da Área da Cultura: "))
             total_insumo = dose * area
+            convert_ton = total_insumo / 1000
             insumos.append((nome_cultura, adubo, total_insumo))
-            print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.2f} Kg de insumo do tipo Casca de Café.")
+            print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.1f} Kg ou {convert_ton} t de insumos do tipo Casca de Café.")
         
         elif adubo in [3]:
             dose = int(input("Adubo: Casca de Café - Digite o Valor da Dose (Máx ou Mín): "))
             area = float(input("Digite o valor da Área da Cultura: "))
             total_insumo = dose * area
+            convert_ton = total_insumo / 1000
             insumos.append((nome_cultura, adubo, total_insumo))
-            print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.2f} Kg de insumo do tipo Casca de Café.")
+            print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.1f} Kg ou {convert_ton} t de insumos do tipo Casca de Café.")
             
         else:
             print("Opção de adubo inválida!")
 
     # Insumos para Laranja
     if nome_cultura == 'laranja':
-        print("""\nCONFORME O SOLO ESCOLHA O TIPO DE ADUBO PARA O PLANTIO DO CAFÉ:
-1. Adubo Rico em Nitrogênio - Escolha: Torta de Mamona - 20 g/m
-2. Adubo com Matéria Orgânica e Potássio - Escolha Casca de Café - 2 L/m
-3. Adubo mais Equilibrado - Escolha Casca de Café - 10 L/m             
+        print("""\n
+              ---------------------------------------------------------------
+              CONFORME O SOLO ESCOLHA O TIPO DE ADUBO PARA O PLANTIO DO CAFÉ:
+              ---------------------------------------------------------------
+1. Adubo Matéria Orgânica - Escolha: Composto Orgânico, Esterco Curtido e Casca de Café - Dose: (2 a 5) Kg/m² por ano.\n
+2. Adubo de Magnésio - Escolha: Sulfato de Magnésio e Calcário Dolomítico - Dose: (50 a 100) g por planta no ano.\n
+3. Adubo de Potássio - Escolha: Cloreto de Potássio e Sulfato de Potássio - Dose: (200 a 300) g por planta (2 a 3 aplicações anuais).             
         """)
         adubo = int(input('Digite a opção de adubo: '))
 
-        if adubo in [1, 2, 3]:  # Garante que a opção é válida
-            quantidade = float(input("Quantidade por metro quadrado: "))
-            total_insumo = quantidade * areas[index]  # Converte área para número
-            insumos.append((nome_cultura, adubo, total_insumo))
-            print(f"Para o plantio do {nome_cultura}, será necessário {total_insumo:.2f} litros de insumo do tipo {adubo}.")
+        if adubo in [1]:  # Garante que a opção é válida
+           dose = int(input("Adubo: Composto Orgânico - Esterco Curtido e Casca de Café: - Digite o Valor da Dose: "))
+           area = float(input("Digite o valor da Área da Cultura: "))
+           total_insumo = dose * area
+           insumos.append((nome_cultura, adubo, total_insumo))
+           print(f"\nPara o plantio da {nome_cultura}, será necessário {total_insumo:.1f} Kg de insumos do tipo matéria orgânica por ano.")
+       
+        elif adubo in [2]:  # Garante que a opção é válida
+           dose = int(input("Adubo: Magnésio - Sulfato de Magnésio e Calcário Dolomítico: - Digite o Valor da Dose: "))
+           qtd_plantas = float(input("Digite a Quantidade de Plantas: "))
+           total_insumo = dose * qtd_plantas
+           conver_kg = total_insumo / 1000
+           insumos.append((nome_cultura, adubo, total_insumo))
+           print(f"\nPara o plantio da {nome_cultura}, será necessário {total_insumo:.1f} g ou {conver_kg} Kg de insumos do tipo magnésio por ano.")
+       
+        elif adubo in [3]:  # Garante que a opção é válida
+           dose = int(input("Adubo: Potássio - Cloreto de Potássio e Sulfato de Potássio: - Digite o Valor da Dose: "))
+           qtd_plantas = float(input("Digite a Quantidade de Plantas: "))
+           total_insumo = dose * qtd_plantas
+           conver_kg = total_insumo / 1000
+           insumos.append((nome_cultura, adubo, total_insumo))
+           print(f"\nPara o plantio da {nome_cultura}, será necessário {total_insumo:.1f} g ou {conver_kg} Kg de insumos do tipo potássio 2 a 3 aplicações anuais.")
+        
         else:
             print("Opção de adubo inválida!")
 
@@ -145,9 +169,6 @@ def listar_dados():
             area = f"{areas[i]} m²"  # Formata em número o valor da área ao exibir # Maneira correta 
             # area = areas[i][0]  # Obtém a área correspondente, ERRO: porém em formato de string que gerou problema na função atualizar_dados()
             print(f"{cultura} -> Área: {area}")
-            print('Insumos:',insumos) ####### somente para testar - deletar 
-            print('area:',areas)      ####### somente para testar - deletar
-            print('Cultura:',culturas) ####### somente para testar - deletar
 
 # Atualizar dados
 def atualizar_dados():
