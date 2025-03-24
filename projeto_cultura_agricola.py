@@ -91,7 +91,7 @@ def adicionar_insumo():
            total_insumo = dose * area
            convert_ton = total_insumo / 1000
            insumos.append((nome_cultura, adubo, total_insumo))
-           print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.1f} Kg ou {convert_ton} t de insumos do tipo Torta de Mamona.")
+           print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.1f} Kg ou {convert_ton:.1f} t de insumos do tipo Torta de Mamona.")
         
         elif adubo in [2]:
             dose = int(input("Adubo: Casca de Café - Digite o Valor da Dose (Máx ou Mín): "))
@@ -99,7 +99,7 @@ def adicionar_insumo():
             total_insumo = dose * area
             convert_ton = total_insumo / 1000
             insumos.append((nome_cultura, adubo, total_insumo))
-            print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.1f} Kg ou {convert_ton} t de insumos do tipo Casca de Café.")
+            print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.1f} Kg ou {convert_ton:.1f} t de insumos do tipo Casca de Café.")
         
         elif adubo in [3]:
             dose = int(input("Adubo: Casca de Café - Digite o Valor da Dose (Máx ou Mín): "))
@@ -107,7 +107,7 @@ def adicionar_insumo():
             total_insumo = dose * area
             convert_ton = total_insumo / 1000
             insumos.append((nome_cultura, adubo, total_insumo))
-            print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.1f} Kg ou {convert_ton} t de insumos do tipo Casca de Café.")
+            print(f"\nPara o plantio do {nome_cultura}, será necessário {total_insumo:.1f} Kg ou {convert_ton:.1f} t de insumos do tipo Casca de Café.")
             
         else:
             print("Opção de adubo inválida!")
@@ -137,7 +137,7 @@ def adicionar_insumo():
            total_insumo = dose * qtd_plantas
            conver_kg = total_insumo / 1000
            insumos.append((nome_cultura, adubo, total_insumo))
-           print(f"\nPara o plantio da {nome_cultura}, será necessário {total_insumo:.1f} g ou {conver_kg} Kg de insumos do tipo magnésio por ano.")
+           print(f"\nPara o plantio da {nome_cultura}, será necessário {total_insumo:.1f} g ou {conver_kg:.1f} Kg de insumos do tipo magnésio por ano.")
        
         elif adubo in [3]:  # Garante que a opção é válida
            dose = int(input("Adubo: Potássio - Cloreto de Potássio e Sulfato de Potássio: - Digite o Valor da Dose: "))
@@ -145,7 +145,7 @@ def adicionar_insumo():
            total_insumo = dose * qtd_plantas
            conver_kg = total_insumo / 1000
            insumos.append((nome_cultura, adubo, total_insumo))
-           print(f"\nPara o plantio da {nome_cultura}, será necessário {total_insumo:.1f} g ou {conver_kg} Kg de insumos do tipo potássio 2 a 3 aplicações anuais.")
+           print(f"\nPara o plantio da {nome_cultura}, será necessário {total_insumo:.1f} g ou {conver_kg:.1f} Kg de insumos do tipo potássio 2 a 3 aplicações anuais.")
         
         else:
             print("Opção de adubo inválida!")
