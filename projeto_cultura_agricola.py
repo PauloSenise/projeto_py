@@ -1,3 +1,4 @@
+# Aluno: Paulo Henrique Senise - RM: 565781 - Turma:  1TIAOA - 2025/1
 # Biblioteca pandas para criação do arquivo CSV
 import pandas as pd
 
